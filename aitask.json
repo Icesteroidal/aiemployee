@@ -1,0 +1,12 @@
+[
+    {
+        "name": "ai_employee_id",
+        "dbType": "integer",
+        "relation": "$ai_employees$id"
+    },
+    { "name": "task", "dbType": "string" },
+    { "name": "status", "dbType": "enum", "options": ["pending", "completed"] },
+    { "name": "response", "dbType": "text" },
+    { "name": "created_at", "dbType": "timestamp", "nullable": true },
+    { "name": "updated_at", "dbType": "timestamp", "nullable": true }
+]

@@ -1,0 +1,11 @@
+[
+    { "name": "name", "dbType": "string" },
+    {
+        "name": "role",
+        "dbType": "enum",
+        "options": ["VA", "CommunityManager", "Scheduler"]
+    },
+    { "name": "status", "dbType": "enum", "options": ["active", "inactive"] },
+    { "name": "created_at", "dbType": "timestamp", "nullable": true },
+    { "name": "updated_at", "dbType": "timestamp", "nullable": true }
+]
