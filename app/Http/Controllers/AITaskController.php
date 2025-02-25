@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use App\Http\Requests\CreateAITaskRequest;
 use App\Http\Requests\UpdateAITaskRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\AITaskRepository;
-use Illuminate\Http\Request;
+
+use App\Models\AITask;
 use Flash;
 
 class AITaskController extends AppBaseController
 {
-
-    use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-use App\Models\AITask;
-
     /** @var AITaskRepository $aITaskRepository*/
     private $aITaskRepository;
 
@@ -37,8 +35,8 @@ use App\Models\AITask;
          $aITask = $this->aITaskRepository->create($input);
  
          // Send the task data to the n8n webhook
-         $n8nWebhookUrl = 'https://your-n8n-instance.com/webhook/aiemployee-task';
-         Http::post($n8nWebhookUrl, [
+         $n8nWebhookUrl = 'https://n8n.srv729050.hstgr.cloud/webhook-test/7891a642-6941-41f1-a6a0-f121662c8316';
+         Http::withOptions(['verify' => false])->post($n8nWebhookUrl, [
              'task_id' => $aITask->id,
              'task' => $aITask->task,
              'ai_employee_id' => $aITask->ai_employee_id,
@@ -47,7 +45,7 @@ use App\Models\AITask;
  
          Flash::success('AI Task saved successfully.');
  
-         return redirect(route('aITasks.index'));
+         return redirect(route('a-i-tasks.index'));
      }
  
      // Other methods...
@@ -84,7 +82,7 @@ use App\Models\AITask;
 
     //     Flash::success('A I Task saved successfully.');
 
-    //     return redirect(route('aITasks.index'));
+    //     return redirect(route('a-i-task.index'));
     // }
 
     /**
@@ -97,7 +95,7 @@ use App\Models\AITask;
         if (empty($aITask)) {
             Flash::error('A I Task not found');
 
-            return redirect(route('aITasks.index'));
+            return redirect(route('a-i-task.index'));
         }
 
         return view('a_i_tasks.show')->with('aITask', $aITask);
@@ -113,7 +111,7 @@ use App\Models\AITask;
         if (empty($aITask)) {
             Flash::error('A I Task not found');
 
-            return redirect(route('aITasks.index'));
+            return redirect(route('a-i-task.index'));
         }
 
         return view('a_i_tasks.edit')->with('aITask', $aITask);
@@ -129,14 +127,14 @@ use App\Models\AITask;
         if (empty($aITask)) {
             Flash::error('A I Task not found');
 
-            return redirect(route('aITasks.index'));
+            return redirect(route('a-i-task.index'));
         }
 
         $aITask = $this->aITaskRepository->update($request->all(), $id);
 
         Flash::success('A I Task updated successfully.');
 
-        return redirect(route('aITasks.index'));
+        return redirect(route('a-i-tasks.index'));
     }
 
     /**
@@ -151,13 +149,13 @@ use App\Models\AITask;
         if (empty($aITask)) {
             Flash::error('A I Task not found');
 
-            return redirect(route('aITasks.index'));
+            return redirect(route('a-i-tasks.index'));
         }
 
         $this->aITaskRepository->delete($id);
 
         Flash::success('A I Task deleted successfully.');
 
-        return redirect(route('aITasks.index'));
+        return redirect(route('a-i-tasks.index'));
     }
 }

@@ -20,13 +20,13 @@
                     <td>{{ $aITask->created_at }}</td>
                     <td>{{ $aITask->updated_at }}</td>
                     <td  style="width: 120px">
-                        {!! Form::open(['route' => ['aITasks.destroy', $aITask->id], 'method' => 'delete']) !!}
+                        {!! Form::open(['route' => ['a-i-tasks.destroy', $aITask->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
-                            <a href="{{ route('aITasks.show', [$aITask->id]) }}"
+                            <a href="{{ route('a-i-tasks.show', [$aITask->id]) }}"
                                class='btn btn-default btn-xs'>
                                 <i class="far fa-eye"></i>
                             </a>
-                            <a href="{{ route('aITasks.edit', [$aITask->id]) }}"
+                            <a href="{{ route('a-i-tasks.edit', [$aITask->id]) }}"
                                class='btn btn-default btn-xs'>
                                 <i class="far fa-edit"></i>
                             </a>

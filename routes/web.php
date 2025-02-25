@@ -33,3 +33,19 @@ Route::post('/aiemployee-webhook', function (Request $request) {
 
     return response()->json(['message' => 'Task updated']);
 });
+
+Route::post('/trigger-task', function (Illuminate\Http\Request $request) {
+    $task = \App\Models\AITask::find($request->task_id);
+    if (!$task) {
+        return response()->json(['error' => 'Task not found'], 404);
+    }
+
+    // Send Task to n8n Webhook
+    \Illuminate\Support\Facades\Http::post('https://eodxuxiuhp3hrig.m.pipedream.net', [
+        'task_id' => $task->id,
+        'task' => $request->task,
+        'ai_employee_id' => $task->ai_employee_id
+    ]);
+
+    return response()->json(['message' => 'Task sent to n8n successfully']);
+});

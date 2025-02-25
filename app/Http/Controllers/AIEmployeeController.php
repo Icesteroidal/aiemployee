@@ -49,7 +49,7 @@ class AIEmployeeController extends AppBaseController
 
         Flash::success('A I Employee saved successfully.');
 
-        return redirect(route('aIEmployees.index'));
+        return redirect(route('a-i-employees.index'));
     }
 
     /**
@@ -62,7 +62,7 @@ class AIEmployeeController extends AppBaseController
         if (empty($aIEmployee)) {
             Flash::error('A I Employee not found');
 
-            return redirect(route('aIEmployees.index'));
+            return redirect(route('a-i-employees.index'));
         }
 
         return view('a_i_employees.show')->with('aIEmployee', $aIEmployee);
@@ -78,7 +78,7 @@ class AIEmployeeController extends AppBaseController
         if (empty($aIEmployee)) {
             Flash::error('A I Employee not found');
 
-            return redirect(route('aIEmployees.index'));
+            return redirect(route('a-i-employees.index'));
         }
 
         return view('a_i_employees.edit')->with('aIEmployee', $aIEmployee);
@@ -94,14 +94,14 @@ class AIEmployeeController extends AppBaseController
         if (empty($aIEmployee)) {
             Flash::error('A I Employee not found');
 
-            return redirect(route('aIEmployees.index'));
+            return redirect(route('a-i-employees.index'));
         }
 
         $aIEmployee = $this->aIEmployeeRepository->update($request->all(), $id);
 
         Flash::success('A I Employee updated successfully.');
 
-        return redirect(route('aIEmployees.index'));
+        return redirect(route('a-i-employees.index'));
     }
 
     /**
@@ -116,13 +116,13 @@ class AIEmployeeController extends AppBaseController
         if (empty($aIEmployee)) {
             Flash::error('A I Employee not found');
 
-            return redirect(route('aIEmployees.index'));
+            return redirect(route('a-i-employees.index'));
         }
 
         $this->aIEmployeeRepository->delete($id);
 
         Flash::success('A I Employee deleted successfully.');
 
-        return redirect(route('aIEmployees.index'));
+        return redirect(route('a-i-employees.index'));
     }
 }

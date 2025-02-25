@@ -19,5 +19,12 @@
             </div>
         </div>
     </div>
+
+    <ul>
+        <li><a href="{{ route('a-i-employees.index') }}">AI Employees</a></li>
+        <li><a href="{{ route('a-i-tasks.index') }}">AI Tasks</a></li>
+    </ul>
+    
+
 </div>
 @endsection

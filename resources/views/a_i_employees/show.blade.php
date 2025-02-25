@@ -11,7 +11,7 @@ A I Employee Details
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-default float-right"
-                       href="{{ route('aIEmployees.index') }}">
+                       href="{{ route('a-i-employees.index') }}">
                                                     Back
                                             </a>
                 </div>

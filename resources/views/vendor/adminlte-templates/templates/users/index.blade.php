@@ -5,11 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>A I Employees</h1>
+                    <h1 class="pull-left">Users</h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
-                       href="{{ route('a-i-employees.create') }}">
+                       href="{{ route('users.create') }}">
                         Add New
                     </a>
                 </div>
@@ -24,8 +24,15 @@
         <div class="clearfix"></div>
 
         <div class="card">
-            @include('a_i_employees.table')
+            <div class="card-body p-0">
+                @include('users.table')
+
+                <div class="card-footer clearfix">
+                    <div class="float-right">
+                        @include('adminlte-templates::common.paginate', ['records' => $users])
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 @endsection

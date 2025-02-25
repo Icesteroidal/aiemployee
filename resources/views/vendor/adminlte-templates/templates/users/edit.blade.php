@@ -5,13 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>
-                    Create A I Employees
-                    </h1>
+                    <h1>User</h1>
                 </div>
             </div>
         </div>
-    </section>
+   </section>
 
     <div class="content px-3">
 
@@ -19,23 +17,21 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'a-i-employees.store']) !!}
+           {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'patch']) !!}
 
             <div class="card-body">
-
                 <div class="row">
-                    @include('a_i_employees.fields')
+                    @include('users.fields')
                 </div>
-
             </div>
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('a-i-employees.index') }}" class="btn btn-default"> Cancel </a>
+                <a href="{{ route('users.index') }}" class="btn btn-default">Cancel</a>
             </div>
 
-            {!! Form::close() !!}
+           {!! Form::close() !!}
 
-        </div>
+       </div>
     </div>
 @endsection

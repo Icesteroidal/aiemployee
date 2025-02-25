@@ -19,7 +19,7 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'aITasks.store']) !!}
+            {!! Form::open(['route' => 'a-i-tasks.store']) !!}
 
             <div class="card-body">
 
@@ -31,7 +31,7 @@
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('aITasks.index') }}" class="btn btn-default"> Cancel </a>
+                <a href="{{ route('a-i-tasks.index') }}" class="btn btn-default"> Cancel </a>
             </div>
 
             {!! Form::close() !!}

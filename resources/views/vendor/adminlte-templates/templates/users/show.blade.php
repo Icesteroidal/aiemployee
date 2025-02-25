@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>A I Employees</h1>
+                    <h1>Users</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('a-i-employees.create') }}">
-                        Add New
+                    <a class="btn btn-default float-right"
+                       href="{{ route('users.index') }}">
+                        Back
                     </a>
                 </div>
             </div>
@@ -18,14 +18,12 @@
     </section>
 
     <div class="content px-3">
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-
         <div class="card">
-            @include('a_i_employees.table')
+            <div class="card-body">
+                <div class="row">
+                    @include('users.show_fields')
+                </div>
+            </div>
         </div>
     </div>
-
 @endsection
