@@ -35,7 +35,7 @@ class AITaskController extends AppBaseController
          $aITask = $this->aITaskRepository->create($input);
  
          // Send the task data to the n8n webhook
-         $n8nWebhookUrl = 'https://n8n.srv729050.hstgr.cloud/webhook-test/7891a642-6941-41f1-a6a0-f121662c8316';
+         $n8nWebhookUrl = 'https://n8n.srv729050.hstgr.cloud/webhook-test/0b74e472-d13c-408b-8507-68b9337bb79d';
          Http::withOptions(['verify' => false])->post($n8nWebhookUrl, [
              'task_id' => $aITask->id,
              'task' => $aITask->task,

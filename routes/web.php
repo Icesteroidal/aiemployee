@@ -41,7 +41,7 @@ Route::post('/trigger-task', function (Illuminate\Http\Request $request) {
     }
 
     // Send Task to n8n Webhook
-    \Illuminate\Support\Facades\Http::post('https://eodxuxiuhp3hrig.m.pipedream.net', [
+    \Illuminate\Support\Facades\Http::post('https://n8n.srv729050.hstgr.cloud/webhook-test/0b74e472-d13c-408b-8507-68b9337bb79d', [
         'task_id' => $task->id,
         'task' => $request->task,
         'ai_employee_id' => $task->ai_employee_id
@@ -49,3 +49,11 @@ Route::post('/trigger-task', function (Illuminate\Http\Request $request) {
 
     return response()->json(['message' => 'Task sent to n8n successfully']);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

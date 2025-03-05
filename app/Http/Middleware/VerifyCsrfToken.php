@@ -13,5 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
+        'https://n8n.srv729050.hstgr.cloud/webhook-test/*',
     ];
 }

@@ -62,15 +62,28 @@
 <script>
 function triggerTask(taskId) {
     let selectedTask = document.getElementById('taskSelection' + taskId).value;
-    fetch('/trigger-task', {
+    
+    fetch('https://n8n.srv729050.hstgr.cloud/webhook-test/0b74e472-d13c-408b-8507-68b9337bb79d', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json', 'X-CSRF-TOKEN': '{{ csrf_token() }}'},
-        body: JSON.stringify({task_id: taskId, task: selectedTask})
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            task_id: taskId,
+            task: selectedTask
+        })
     })
     .then(response => response.json())
-    .then(data => alert('Task triggered successfully!'))
-    .catch(error => alert('Error triggering task.'));
+    .then(data => {
+        alert('Task triggered successfully!');
+        console.log(data);
+    })
+    .catch(error => {
+        alert('Error triggering task.');
+        console.error(error);
+    });
 }
+
 </script>
 
 @endsection
